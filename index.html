@@ -1,311 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karthik | Portfolio</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#0f172a;
-color:white;
-}
-
-/* NAVBAR */
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-background:#020617;
-position:sticky;
-top:0;
-}
-
-.logo{
-font-size:22px;
-font-weight:bold;
-color:#38bdf8;
-}
-
-nav ul{
-list-style:none;
-display:flex;
-gap:25px;
-}
-
-nav ul li a{
-text-decoration:none;
-color:white;
-font-size:15px;
-}
-
-nav ul li a:hover{
-color:#38bdf8;
-}
-
-/* HERO */
-
-.hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-.hero h1{
-font-size:50px;
-}
-
-.hero span{
-color:#38bdf8;
-}
-
-.hero p{
-margin-top:10px;
-color:#cbd5f5;
-}
-
-.btn{
-margin-top:20px;
-padding:10px 20px;
-background:#38bdf8;
-border:none;
-border-radius:5px;
-cursor:pointer;
-color:black;
-font-weight:bold;
-}
-
-/* SECTION */
-
-section{
-padding:80px 10%;
-}
-
-.section-title{
-font-size:30px;
-margin-bottom:30px;
-color:#38bdf8;
-}
-
-/* ABOUT */
-
-.about p{
-max-width:600px;
-line-height:1.6;
-color:#cbd5f5;
-}
-
-/* SKILLS */
-
-.skills-container{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-}
-
-.skill{
-background:#1e293b;
-padding:10px 15px;
-border-radius:5px;
-}
-
-/* PROJECTS */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.project{
-background:#1e293b;
-padding:20px;
-border-radius:8px;
-transition:0.3s;
-}
-
-.project:hover{
-transform:translateY(-5px);
-}
-
-/* CONTACT */
-
-.contact input,
-.contact textarea{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-border:none;
-border-radius:5px;
-}
-
-.contact button{
-padding:10px 20px;
-border:none;
-background:#38bdf8;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:20px;
-background:#020617;
-margin-top:40px;
-color:#94a3b8;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Shetty | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-
-
 <body>
+    <!-- Background Canvas -->
+    <canvas class="bg-canvas" id="bgCanvas"></canvas>
 
-<nav>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">KS</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<div class="logo">Karthik</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h3>👋 Hello, I'm</h3>
+                <h1>Karthik Shetty</h1>
+                <h2><span>Junior Support Engineer</span></h2>
+                <p>Passionate about DevOps and Programming. I specialize in troubleshooting web and email issues, working with SSH commands, and building innovative full-stack solutions with modern technologies.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                </div>
+            </div>
+            <div class="hero-avatar">
+                <div class="avatar-wrapper">
+                    <div class="avatar-border"></div>
+                    <div class="avatar-img">
+                        <img src="/assets/ss.png" alt="Karthik Shetty" id="avatarImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <div class="section-header">
+            <div class="section-tag">WHO AM I?</div>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-description">
+                I'm a dedicated Junior Support Engineer at Unifx Company with a strong passion for DevOps and programming. 
+                I completed my BCA from Alva's College, Moodbidri in 2024, and have gained hands-on experience through my 
+                internship at Accerlab where I built a comprehensive job search platform using the PERN stack.
+            </p>
+        </div>
+    </section>
 
-</nav>
+    <!-- Skills Section -->
+    <section id="skills" class="fade-in">
+        <div class="section-header">
+            <div class="section-tag">WHAT I KNOW</div>
+            <h2 class="section-title">Skills & Technologies</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Python</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Frontend Development -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>React</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML & CSS</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- HERO -->
+                <!-- Backend & Database -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Backend & DB</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>MySQL</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Node.js</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<section id="home" class="hero">
+                <!-- DevOps & Tools -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>DevOps & Tools</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Git & GitHub</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>SSH & Linux</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h1>Hello, I'm <span>Karthik</span></h1>
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+        <div class="section-header">
+            <div class="section-tag">MY JOURNEY</div>
+            <h2 class="section-title">Experience & Education</h2>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2024 - Present</div>
+                    <h3>Junior Support Engineer</h3>
+                    <h4>Unifx Company</h4>
+                    <p>Providing comprehensive technical support for website and email troubleshooting. Working extensively with SSH commands to diagnose and resolve customer issues, ensuring optimal system performance and customer satisfaction.</p>
+                </div>
+                <div class="timeline-empty"></div>
+                <div class="timeline-dot"></div>
+            </div>
 
-<p>A passionate web developer building modern websites.</p>
+            <div class="timeline-item">
+                <div class="timeline-empty"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2024 (2 Months)</div>
+                    <h3>PERN Stack Developer Intern</h3>
+                    <h4>Accerlab</h4>
+                    <p>Developed a comprehensive job search platform using PostgreSQL, Express, React, and Node.js. Gained valuable hands-on experience in full-stack development, RESTful APIs, and modern web architecture.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
 
-<button class="btn" onclick="scrollToSection('projects')">
-View Projects
-</button>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2021 - 2024</div>
+                    <h3>Bachelor of Computer Applications</h3>
+                    <h4>Alva's College, Moodbidri</h4>
+                    <p>Completed comprehensive computer science education covering programming fundamentals, database management, web development, system administration, and software engineering principles.</p>
+                </div>
+                <div class="timeline-empty"></div>
+                <div class="timeline-dot"></div>
+            </div>
 
-</section>
+            <div class="timeline-item">
+                <div class="timeline-empty"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Completed</div>
+                    <h3>Pre-University Course - Commerce</h3>
+                    <h4>Gunashree PU College, Siddakatte</h4>
+                    <p>Completed pre-university education with a focus on commerce and statistics, building a strong analytical foundation.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+        <div class="section-header">
+            <div class="section-tag">MY WORK</div>
+            <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-number">01</div>
+                <div class="project-content">
+                    <div class="project-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Job Search Platform</h3>
+                    <p>A full-stack web application connecting job seekers with employers. Features advanced search filters, user authentication, job posting management, and real-time notifications.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
 
-<!-- ABOUT -->
+            <div class="project-card">
+                <div class="project-number">02</div>
+                <div class="project-content">
+                    <div class="project-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>National Insurance Care</h3>
+                    <p>
+                        A responsive insurance services website showcasing motor, health, and general insurance plans. 
+                        Designed with a clean UI, structured content sections, and smooth interactions for better user experience.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <a href="https://nationalinsurancecare.com/" 
+                        class="project-link" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                            View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
 
-<section id="about" class="about">
+            <div class="project-card">
+                <div class="project-number">03</div>
+                <div class="project-content">
+                    <div class="project-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Portfolio Website</h3>
+                    <p>A modern, responsive portfolio showcasing projects, skills, and professional experience with stunning animations and interactive elements.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Canvas</span>
+                    </div>
+                    <a href="/index.html" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2 class="section-title">About Me</h2>
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <div class="section-header">
+            <div class="section-tag">GET IN TOUCH</div>
+            <h2 class="section-title">Let's Work Together</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Connect!</h3>
+                <p>I'm always interested in hearing about new opportunities, collaborations, or just having a chat about technology, DevOps, and software development.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>karthikshettty08@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 8073602693</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Manglore, Karnataka, India</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Karthi-06" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/karthik-shetty-4708a5286/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:karthikshettty08@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
 
-<p>
-I am Karthik, a web developer who enjoys creating clean and responsive websites.
-I like solving problems with code and continuously learning new technologies
-to improve my skills.
-</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="name" required>
+                </div>
 
-</section>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
 
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
 
-<!-- SKILLS -->
+                <!-- CAPTCHA -->
+                <div class="g-recaptcha" data-sitekey="6LcbNF0sAAAAANxwKobjKc0BHrdVWCAlvDojcBXn"></div>
 
-<section id="skills">
+                <button type="submit" class="btn btn-primary" style="width:100%">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            <p id="formSuccess" class="form-success">
+                Thank you! I’ll be sure to get you a response soon.
+            </p>
+        </div>
+    </section>
 
-<h2 class="section-title">Skills</h2>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Karthik Shetty. Crafted with <i class="fas fa-heart" style="color: #ff6b6b;"></i> | All Rights Reserved</p>
+    </footer>
 
-<div class="skills-container">
-
-<div class="skill">HTML</div>
-<div class="skill">CSS</div>
-<div class="skill">JavaScript</div>
-<div class="skill">React</div>
-<div class="skill">Node.js</div>
-<div class="skill">Git</div>
-
-</div>
-
-</section>
-
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<h2 class="section-title">Projects</h2>
-
-<div class="projects">
-
-<div class="project">
-<h3>Portfolio Website</h3>
-<p>Personal portfolio to showcase projects and skills.</p>
-</div>
-
-<div class="project">
-<h3>Weather App</h3>
-<p>A web app that shows live weather using API.</p>
-</div>
-
-<div class="project">
-<h3>Task Manager</h3>
-<p>A simple task management application.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<h2 class="section-title">Contact</h2>
-
-<input type="text" placeholder="Your Name">
-
-<input type="email" placeholder="Email">
-
-<textarea rows="5" placeholder="Message"></textarea>
-
-<button onclick="sendMessage()">Send Message</button>
-
-</section>
-
-
-<footer>
-© 2026 Karthik | Portfolio
-</footer>
-
-
-<script>
-
-function scrollToSection(id){
-document.getElementById(id).scrollIntoView({
-behavior:"smooth"
-})
-}
-
-function sendMessage(){
-alert("Message sent successfully!");
-}
-
-</script>
-
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 </body>
 </html>
