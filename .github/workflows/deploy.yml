@@ -21,5 +21,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /var/www/html
+            git reset --hard
             git pull origin main
             sudo systemctl restart apache2
