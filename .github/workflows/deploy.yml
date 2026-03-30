@@ -25,6 +25,6 @@ jobs:
             cd /var/www/html
             git fetch origin
             git reset --hard origin/main
-            sudo systemctl restart apache2
+            sudo systemctl restart nginx
 
             
